@@ -2,8 +2,9 @@
 @use "fonts" as *
 
 .header
+    z-index: 2
     display: flex
-    background: $maize-crayola
+    background: $legolas
     min-height: 75px
     border-bottom: 5px solid black
     width: 100%
@@ -18,12 +19,12 @@
     align-items: center
     justify-content: center
     width: 50%
-
     svg
         align-self: center
         min-height: 75px
         height: 50%
-
+.left-info
+    margin: 1rem 0 0 1rem
 .right-info
     display: flex
     align-items: end
@@ -33,7 +34,7 @@
         overflow: hidden
         flex-flow: column wrap
         text-decoration: none
-        color: black
+        color: $ranger
         transform: translate(0,0.3rem)
     &:hover
             filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.5))    
@@ -43,6 +44,8 @@
     .left-info, .right-info a#username
         display: none
 
+    #logo
+        margin-left: 1rem
 
     
 
