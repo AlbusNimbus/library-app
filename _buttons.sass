@@ -1,0 +1,30 @@
+@use "colours" as *
+@use "fonts" as *
+
+.button-container
+    display: flex
+    position: absolute
+    background: none
+
+    gap: 1rem
+    top: -150px
+    z-index: 1
+    button
+        overflow: hidden
+        border: 0
+        background: none
+        transition: 0.5s
+        &:hover
+            transform:  translate(0,100px)
+       
+            
+    button#add-book
+        svg
+            fill: $samwise
+            svg#plus
+                fill: white
+    button#remove-book
+        svg
+            fill: red
+    
+        
