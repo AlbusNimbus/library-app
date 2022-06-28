@@ -10,7 +10,7 @@
     <title>Bookshelf</title>
 </head>
 
-<body>
+<body onresize="updateBookShelf()">
     <div class="header">
         <div class="left-info">
             <p>The Odin Project</p>
@@ -80,7 +80,7 @@
                     <h3>Add a new Book</h3>
                     <input class="input" type="text" id="title" placeholder="Title" required maxlength="100" />
                     <input class="input" type="text" id="author" placeholder="Author" required maxlength="100" />
-                    <input class="input" type="number" id="pages" placeholder="Pages" required max="10000" />
+                    <input class="input" type="number" id="pages" placeholder="Pages" required max="600" />
                     <div class="is-read">
                         <label for="is-read">Have you read it?</label>
                         <input class="checkbox" type="checkbox" id="isRead" />
@@ -101,18 +101,9 @@
             </button>
 
         </div>
-        <div class="shelf-container">
-            <div class="shelf">
-                <div class="book">
-                    <div class="book-cover">
-                        <p id="author">JRR TOLKIEN</p>
-                        <p id="title">Hobbit</p>
-                    </div>
-                    <div class="book-side">
-                        <p id="title">Hobbit</p>
-                    </div>
-                </div>
-                <div class="book" background="white">
+        <div class="shelf-container" id="shelfContainer">
+            <div class="shelf" id="shelf">
+                <div class="book" >
                     <div class="book-cover">
                         <p id="author">JRR TOLKIEN</p>
                         <p id="title">Lord Of the Rings:The Fellowship of the Ring</p>
@@ -122,29 +113,7 @@
                     </div>
                 </div>
             </div>
-            <div class="shelf">
-                <div class="book">
-                    <div class="book-cover">
-                        <p id="author">JRR TOLKIEN</p>
-                        <p id="title">Lord Of the Rings: Two Towers</p>
-                    </div>
-                    <div class="book-side">
-                        <p id="title">Lord Of the Rings: Two Towers</p>
-                    </div>
-                </div>
-                <div class="book">
-                    <div class="book-cover">
-                        <p id="author">JRR TOLKIEN</p>
-                        <p id="title">Lord Of the Rings: Return of the King</p>
-                    </div>
-                    <div class="book-side">
-                        <p id="title">Lord Of the Rings: Return of the King</p>
-                    </div>
-                </div>
-
-            </div>
         </div>
-        
         </div>
         </div>
     </main>
