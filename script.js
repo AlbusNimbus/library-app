@@ -5,6 +5,7 @@ class Book {
     author = '',
     pages = '100',
     isRead = false
+
   ) {
     this.title = title
     this.author = author
@@ -48,13 +49,15 @@ const addBookForm = document.getElementById('addBookForm')
 const shelfContainer = document.getElementById('shelfContainer')
 var shelf = document.getElementById('shelfContainer').lastElementChild
 
+
 const createBookCard = (book) => {
   const bookCard = document.createElement('div')
   const bookCover = document.createElement('div')
   const bookSide = document.createElement('div')
+  const bookmark = document.getElementById('bookmark')
+  const bookmarkClone = bookmark.cloneNode(true)
   const title = document.createElement('p')
   const author = document.createElement('p')
-
   bookCard.classList.add('book')
   bookCover.classList.add('book-cover')
   bookSide.classList.add('book-side')
@@ -62,16 +65,19 @@ const createBookCard = (book) => {
   author.id = 'author'
   title.textContent = book.title
   author.textContent = book.author
-  bookCard.appendChild(bookCover)
   bookCard.appendChild(bookSide)
+  bookCard.appendChild(bookCover)
   bookCover.appendChild(author)
   bookCover.appendChild(title.cloneNode(true))
+  if(book.isRead){ bookmarkClone.classList.add('active')}
+  bookCover.appendChild(bookmarkClone)
   bookSide.appendChild(title)
   shelf.appendChild(bookCard)
   bookCard.style.background = 'hsl(' + Math.floor(Math.random() * 255) +', 30%, 45%)' 
   bookCard.style.width = book.pages/2 +'px'
   var offset = ( Math.floor(Math.random() * 40))
   bookCard.style.height = 300 + offset +'px'
+  bookmarkClone.onclick = toggleRead
 }
 
 const updateBookShelf = () => {
@@ -117,6 +123,14 @@ const addBook = (e) => {
   saveLocal()
   updateBookShelf()
   toggleAddBookModal()
+}
+
+const toggleRead = (e) => {
+  const title = e.target.parentElement.parentElement.firstChild.innerText
+  const book = library.getBook(title)
+  book.isRead = !book.isRead
+  e.target.classList.toggle('active')
+  saveLocal()
 }
 
 const getBookFromInput = () => {

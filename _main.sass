@@ -103,11 +103,10 @@ main
     height: 100%
     transition: 0.5s 
     transform: rotateY(90deg)
-    overflow: hidden
     box-shadow: inset -100px 0px 100px rgba(0, 0, 0, 1)
     font-family: inherit
     color: white
-    z-index: 3
+    z-index: 2
     transform-origin: 0% 
 
     #title
@@ -120,7 +119,7 @@ main
 
     transform: scale(1.2) rotateY(0deg) translateX(-175px)
     box-shadow: inset -15px 0px 50px rgba(0, 0, 0, 0.5),inset 15px 0px 50px rgba(255, 255, 255, 0.3)
-    z-index: 4
+    z-index: 2
 
 #overlay
     position: absolute
@@ -132,5 +131,16 @@ main
     z-index: 3
 #overlay.active
     display: flex
-    
 
+.bookmark
+    opacity: 0.2
+    position: absolute
+    top: -30px
+    right: -30px
+    transform: rotateY(180deg)
+    z-index:5
+
+.bookmark.active
+    opacity: 1
+.bookmark > path
+    pointer-events: none
