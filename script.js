@@ -47,6 +47,7 @@ const addBookModal = document.getElementById('addBookModal')
 const overlay = document.getElementById('overlay')
 const addBookForm = document.getElementById('addBookForm')
 const shelfContainer = document.getElementById('shelfContainer')
+const removeList = document.getElementById('removeBookModal')
 var shelf = document.getElementById('shelfContainer').lastElementChild
 
 
@@ -77,7 +78,7 @@ const createBookCard = (book) => {
   bookCard.style.width = book.pages/2 +'px'
   var offset = ( Math.floor(Math.random() * 40))
   bookCard.style.height = 300 + offset +'px'
-  bookmarkClone.onclick = toggleRead
+  bookCover.onclick = toggleRead
 }
 
 const updateBookShelf = () => {
@@ -94,8 +95,30 @@ const updateBookShelf = () => {
       createBookCard(book)
       currentPageCount = 0
     }
-  
+  updateRemoveList()
 }
+}
+
+const updateRemoveList = () => {
+  resetRemoveList()
+  for (let book of library.books) {
+    const bookEntry = document.createElement('div')
+    const title = document.createElement('p')
+    const removeButton = document.createElement('p')
+    title.innerText = book.title
+    removeButton.innerText = 'X'
+    bookEntry.classList.add('book-entry')
+    title.id = 'removeTitle'
+    removeButton.id = 'removeButton'
+    removeButton.onclick = removeBook
+    bookEntry.appendChild(title)
+    bookEntry.appendChild(removeButton)
+    removeList.appendChild(bookEntry)
+}
+}
+
+const resetRemoveList = () => {
+  removeList.innerHTML = ''
 }
 const createNewShelf= () => {
     const newShelf = document.createElement('div')
@@ -124,12 +147,23 @@ const addBook = (e) => {
   updateBookShelf()
   toggleAddBookModal()
 }
-
+const removeBook = (e) => {
+  console.log('removing' + e.target.parentElement.firstChild.innerText)
+  library.removeBook(e.target.parentElement.firstChild.innerText)
+  updateBookShelf()
+  saveLocal()
+}
+const toggleRemoveBookModal = () => {
+  removeBookModal.classList.toggle('active')
+  overlay.classList.toggle('active')
+  rmBookBtn.classList.toggle('active')
+}
 const toggleRead = (e) => {
-  const title = e.target.parentElement.parentElement.firstChild.innerText
+  const title = e.target.parentElement.firstChild.innerText
+  console.log(title)
   const book = library.getBook(title)
   book.isRead = !book.isRead
-  e.target.classList.toggle('active')
+  e.target.parentElement.querySelector("#bookmark").classList.toggle('active')
   saveLocal()
 }
 
@@ -158,8 +192,10 @@ const JSONToBook = (book) => {
 }
 
 addBookForm.onsubmit = addBook
+
 overlay.onclick = toggleAddBookModal
 addBookBtn.onclick = toggleAddBookModal
+rmBookBtn.onclick = toggleRemoveBookModal
 
 restoreLocal()
 updateBookShelf()

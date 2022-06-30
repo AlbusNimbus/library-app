@@ -75,10 +75,13 @@
   transform: translate(0, 100px);
 }
 .button-container button#add-book {
-  z-index: 3;
+  z-index: 2;
 }
 .button-container button#add-book svg {
   fill: #4dc751;
+}
+.button-container button#remove-book {
+  z-index: 2;
 }
 .button-container button#remove-book svg {
   fill: red;
@@ -103,10 +106,58 @@
 }
 
 button#add-book.active {
+  z-index: 3;
   transform: translate(0, 380px);
 }
 
 .add-book-modal.active {
+  transform: translate(0, 320px);
+}
+
+.remove-book-modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 50px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  top: -200px;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: #c8cece;
+  transition: 0.5s;
+  z-index: 3;
+  border: 4px solid black;
+  border-radius: 5px;
+  background: #e9d8a6;
+  overflow-y: scroll;
+  font-family: "Cherry Swash", "Poppins", "Helvetica Neue";
+}
+.remove-book-modal .book-entry {
+  display: flex;
+  padding: 0px 10px 0px 10px;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+.remove-book-modal .book-entry p#removeButton {
+  color: red;
+}
+.remove-book-modal .book-entry p#removeButton:hover {
+  cursor: pointer;
+}
+.remove-book-modal .book-entry p#removeButton:active {
+  cursor: pointer;
+}
+
+button#remove-book.active {
+  z-index: 3;
+  transform: translate(0, 380px);
+}
+
+.remove-book-modal.active {
   transform: translate(0, 320px);
 }
 
@@ -202,6 +253,7 @@ main {
   transition: 0.5s;
   transform-origin: 100%;
   font-family: inherit;
+  pointer-events: none;
   box-shadow: inset -15px 0px 50px rgba(0, 0, 0, 0.5), inset 15px 0px 50px rgba(255, 255, 255, 0.5);
 }
 .book-side #title {
@@ -243,10 +295,12 @@ main {
 }
 .book-cover #title {
   font-size: 2rem;
+  pointer-events: none;
 }
 .book-cover #author {
   font-size: 20px;
   align-self: top;
+  pointer-events: none;
 }
 
 .book:hover > .book-cover {
@@ -269,20 +323,19 @@ main {
 }
 
 .bookmark {
-  opacity: 0.2;
+  opacity: 0.4;
   position: absolute;
+  display: none;
   top: -30px;
   right: -30px;
   transform: rotateY(180deg);
   z-index: 5;
+  pointer-events: none;
 }
 
 .bookmark.active {
+  display: block;
   opacity: 1;
-}
-
-.bookmark > path {
-  pointer-events: none;
 }
 
 * {
