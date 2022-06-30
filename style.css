@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Poppins:wght@500&display=swap");
 .header {
-  z-index: 2;
+  z-index: 5;
   display: flex;
   background: #d2b732;
   min-height: 75px;
@@ -75,13 +75,13 @@
   transform: translate(0, 100px);
 }
 .button-container button#add-book {
-  z-index: 2;
+  z-index: 3;
 }
 .button-container button#add-book svg {
   fill: #4dc751;
 }
 .button-container button#remove-book {
-  z-index: 2;
+  z-index: 3;
 }
 .button-container button#remove-book svg {
   fill: red;
@@ -99,14 +99,13 @@
   height: 300px;
   background: #c8cece;
   transition: 0.5s;
-  z-index: 3;
+  z-index: 4;
   border: 4px solid black;
   border-radius: 5px;
   background: #e9d8a6;
 }
 
 button#add-book.active {
-  z-index: 3;
   transform: translate(0, 380px);
 }
 
@@ -128,7 +127,7 @@ button#add-book.active {
   height: 300px;
   background: #c8cece;
   transition: 0.5s;
-  z-index: 3;
+  z-index: 4;
   border: 4px solid black;
   border-radius: 5px;
   background: #e9d8a6;
@@ -153,7 +152,6 @@ button#add-book.active {
 }
 
 button#remove-book.active {
-  z-index: 3;
   transform: translate(0, 380px);
 }
 

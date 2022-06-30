@@ -158,6 +158,13 @@ const toggleRemoveBookModal = () => {
   overlay.classList.toggle('active')
   rmBookBtn.classList.toggle('active')
 }
+const removeModal = () => {
+  overlay.classList.remove('active')
+  addBookModal.classList.remove('active')
+  addBookBtn.classList.remove('active')
+  removeBookModal.classList.remove('active')
+  rmBookBtn.classList.remove('active')
+}
 const toggleRead = (e) => {
   const title = e.target.parentElement.firstChild.innerText
   console.log(title)
@@ -193,7 +200,7 @@ const JSONToBook = (book) => {
 
 addBookForm.onsubmit = addBook
 
-overlay.onclick = toggleAddBookModal
+overlay.onclick = removeModal
 addBookBtn.onclick = toggleAddBookModal
 rmBookBtn.onclick = toggleRemoveBookModal
 

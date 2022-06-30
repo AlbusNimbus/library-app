@@ -16,11 +16,11 @@
         &:hover
             transform:  translate(0,100px)
     button#add-book
-        z-index: 2
+        z-index: 3
         svg
             fill: $samwise
     button#remove-book
-        z-index: 2
+        z-index: 3
         svg
             fill: red
     
@@ -37,13 +37,12 @@
     height:300px
     background: $smeagol
     transition: 0.5s
-    z-index: 3
+    z-index: 4
     border: 4px solid black
     border-radius: 5px
     background: #e9d8a6
 
 button#add-book.active
-    z-index: 3
     transform: translate(0,380px)
 .add-book-modal.active
     transform: translate(0,320px)
@@ -62,7 +61,7 @@ button#add-book.active
     height:300px
     background: $smeagol
     transition: 0.5s
-    z-index: 3
+    z-index: 4
     border: 4px solid black
     border-radius: 5px
     background: #e9d8a6
@@ -81,7 +80,6 @@ button#add-book.active
             &:active
                 cursor: pointer
 button#remove-book.active
-    z-index: 3
     transform: translate(0,380px)
 .remove-book-modal.active
     transform: translate(0,320px)
