@@ -169,6 +169,7 @@ const toggleRead = (e) => {
   const title = e.target.parentElement.firstChild.innerText
   console.log(title)
   const book = library.getBook(title)
+  console.log(library)
   book.isRead = !book.isRead
   e.target.parentElement.querySelector("#bookmark").classList.toggle('active')
   saveLocal()
@@ -206,4 +207,3 @@ rmBookBtn.onclick = toggleRemoveBookModal
 
 restoreLocal()
 updateBookShelf()
-

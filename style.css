@@ -294,11 +294,13 @@ main {
 .book-cover #title {
   font-size: 2rem;
   pointer-events: none;
+  user-select: none;
 }
 .book-cover #author {
   font-size: 20px;
   align-self: top;
   pointer-events: none;
+  user-select: none;
 }
 
 .book:hover > .book-cover {
