@@ -16,4 +16,4 @@ Web-app that displays users physical library on a digital form.
 ![Preview](https://imgur.com/yykCgpb.gif)
 
 ## Live Preview
-Live Preview 👉 ![📕](https://albusnimbus.github.io/library-app/)
+👉 ![📕](https://albusnimbus.github.io/library-app/)
